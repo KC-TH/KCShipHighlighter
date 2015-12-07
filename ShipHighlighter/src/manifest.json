@@ -3,7 +3,7 @@
 	
 	"name": "Kancolle Ship Highlighter",
 	"description": "Highlight the kanji names of the shipgirls in poi-statistics to make it easier to read.",
-	"version": "1.0",
+	"version": "0.1",
 	
 	"permissions": ["http://db.kcwiki.moe/"],
 	
