@@ -10,7 +10,7 @@
 	"content_scripts": [{
 		"matches": ["http://db.kcwiki.moe/*"],
 	    "css": ["css/ship_highlighter.css"],
-	    "js": ["js/jquery-2.1.4.min.js", "js/ShipDatabase.js", "js/poi-statistics.js"],
+	    "js": ["js/jquery-2.1.4.min.js", "js/ShipDatabase.js", "js/ShipReplacer.js", "js/poi-statistics.js"],
 	    "run-at": "document_end"
 	}],
   

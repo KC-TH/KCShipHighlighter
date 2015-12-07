@@ -1,5 +1,6 @@
 (function() {
 	ShipDatabase.init();
+	ShipReplacer.init();
 	
 	var observer = new MutationObserver(function(mutations) {
 		mutations.forEach(function(mutation) {
@@ -9,16 +10,7 @@
 				$nodes.each(function() {
 					var $node = $(this);
 					if (this.nodeName.toLowerCase() == 'tbody' || this.nodeName.toLowerCase() == 'tr') {
-						$(this).find('td:nth-child(2):not(.highlighted-ship)')
-								.addClass('highlighted-ship')
-								.each(function() {
-									var jpName = $(this).text();
-									var readableName = ShipDatabase.getShipName(jpName);
-									
-									if(readableName != null && readableName != jpName) {
-										$(this).text(readableName + " / " + jpName)
-									}
-								})
+						ShipReplacer.runReplacer($(this).find('td:nth-child(2):not(.highlighted-ship)'));
 					}
 				});
 			}
@@ -31,8 +23,9 @@
 		characterData : true,
 		subtree : true
 	};
-	
+
 	$("table").each(function() {
+		ShipReplacer.runReplacer($(this).find('td:nth-child(2):not(.highlighted-ship)'));
 		observer.observe(this, config);
 	})
 })()
